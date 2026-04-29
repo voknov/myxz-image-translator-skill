@@ -1,0 +1,44 @@
+{
+  "name": "myxz-image-translator",
+  "version": "1.0.0",
+  "description": "妙言小智(PicTech.cc)为OpenClaw等开发的专业级AI图片翻译skill，支持批量处理、语种自动映射及秒传缓存功能。",
+  "main": "dist/index.js",
+  "author": "妙言小智(PicTech.cc)",
+  "params": [
+    {
+      "name": "vk",
+      "type": "string",
+      "label": "API 密钥 (VK)",
+      "placeholder": "请输入来自 https://www.pictech.cc上申请 的 VK",
+      "required": true
+    },
+    {
+      "name": "input",
+      "type": "string",
+      "label": "输入资源",
+      "placeholder": "支持单个/多个URL、本地图片路径或整个文件夹",
+      "required": true
+    },
+    {
+      "name": "saveDir",
+      "type": "string",
+      "label": "保存目录 (可选)",
+      "placeholder": "例如: D:/Output/RMBG 留空则默认保存在用户目录的 myxz-result 下",
+      "required": false
+    },
+    {
+      "name": "sourceLanguage",
+      "type": "string",
+      "label": "源语言",
+      "default": "中文",
+      "placeholder": "支持：中文、繁体中文、英文、日文"
+    },
+    {
+      "name": "targetLanguage",
+      "type": "string",
+      "label": "目标语言",
+      "default": "英文",
+      "placeholder": "支持：英文、日文、韩文、泰文、德文、法文等19种语言"
+    }
+  ]
+}

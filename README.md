@@ -45,16 +45,24 @@
 你可以直接对你的 AI 助手说以下话：
 
 ### 1. 激活并翻译（首次使用）
-> "这是我的妙言小智 VK 密钥：`sp332e083xxxxxxxx`，帮我把桌面上的中文图片 `listing_main.jpg` 翻译成英文。"
+```
+> "这是我的妙言小智 VK 密钥：`sp332e083xxxxxxxx`，请用妙言小智的图片翻译skill帮我把桌面上的中文图片 `listing_main.jpg` 翻译成英文。"
+```
 
 ### 2. 批量处理电商素材包
-> "翻译这个文件夹里的所有产品图：`E:/Amazon/New_Product_A`。源语言是中文，翻译成英文。"
+```
+> "请用妙言小智的图片翻译skill翻译这个文件夹里的所有产品图：`E:/Amazon/New_Product_A`。源语言是中文，翻译成英文。"
+```
 
 ### 3. 直接翻译网络图片
-> "翻译这张主图：https://example.com/item_01.jpg，中文翻译成英文"
+```
+> "请用妙言小智的图片翻译skill 翻译这张主图：https://example.com/item_01.jpg，中文翻译成英文"
+```
 
 ### 4. 翻译多张网络图片
-> "翻译这几张主图：https://example.com/item_01.jpg,https://example.com/item_02.jpg,https://example.com/item_03.jpg中文翻译成英文"
+```
+> "请用妙言小智的图片翻译skill翻译这几张主图：https://example.com/item_01.jpg,https://example.com/item_02.jpg,https://example.com/item_03.jpg中文翻译成英文"
+```
 
 ---
 

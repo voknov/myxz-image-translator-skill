@@ -1,6 +1,6 @@
 # 🎨 妙言小智 (PicTech.cc) 专业图片翻译 Skill
 
-**—— 为跨境电商而生的生产级 AI 图像处理插件**
+**—— 小龙虾(OpenClaw)生态中为跨境电商而生的生产级 AI 图像翻译SKILL**
 
 
 
@@ -8,7 +8,7 @@
 
 在跨境电商领域（亚马逊、Shopify、Shopee、Lazada、TikTok Shop、美客多等），图片素材的本地化质量直接影响转化率。传统的翻译工具往往会破坏原图美感，或需要频繁手动操作。
 
-本 Skill 是由 **[妙言小智 (PicTech.cc)](https://pictech.cc)** 官方出品的专业级图片翻译OpenClaw生态的解决方案。它不仅是一个图片翻译的SKILL，更是一个懂业务、有记忆、能批量处理的“AI 翻译官”。
+本 Skill 是由 **[妙言小智 (PicTech.cc)](https://www.pictech.cc)** 官方出品的专业级[图片翻译](https://www.pictech.cc)OpenClaw生态的解决方案。它不仅是一个图片翻译的SKILL，更是一个懂业务、有记忆、能批量处理的“AI 翻译官”。
 
 ### 核心优势：
 *   **保持原图布局**：采用先进的 OCR 与图像修补技术，翻译后文字完美嵌入原图位置，不影响排版美感。
@@ -22,7 +22,7 @@
 
 ## 🛠️ 安装指南
 
-本 Skill 适用于 **OpenClaw**、**WorkBuddy**、**Claude Code** 等支持标准 Agent Skills 的环境。
+本 [图片翻译Skill](https://www.pictech.cc) 适用于 **OpenClaw**、**WorkBuddy**、**Claude Code** 等支持标准 Agent Skills 的环境。
 
 1.  **克隆仓库**：
     ```bash

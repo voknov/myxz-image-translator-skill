@@ -89,7 +89,7 @@
 
 妙言小智致力于通过 AI 技术赋能跨境电商卖家，提供最高质量的图片、文案本地化方案。
 
-*   **妙言小智官方网站**: [https://pictech.cc](https://pictech.cc)
+*   **[妙言小智官方网站](https://pictech.cc)**: [https://pictech.cc](https://pictech.cc)
 *   **支持反馈**: 若遇到技术问题，请提交 Issue 或通过官网联系客服。
 
 ---

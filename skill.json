@@ -4,6 +4,19 @@
   "description": "妙言小智(PicTech.cc)为OpenClaw等开发的专业级AI图片翻译skill，支持批量处理、语种自动映射及秒传缓存功能。",
   "main": "dist/index.js",
   "author": "妙言小智(PicTech.cc)",
+  "config": {
+    "type": "object",
+    "properties": {
+      "vk": {
+        "type": "string",
+        "title": "API 密钥 (VK)",
+        "description": "在 https://www.pictech.cc 获取，只需填写一次"
+      }
+    },
+    "required": [
+      "vk"
+    ]
+  },
   "params": [
     {
       "name": "vk",

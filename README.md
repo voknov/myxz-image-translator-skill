@@ -35,7 +35,7 @@ npm install
 帮我安装妙言小智的图片翻译skill https://github.com/your-username/myxz-image-translator-skill.git
 ```
 
-### 2. 获取并配置 VK (API Key)
+### 3. 获取并配置 VK (API Key)
 本 Skill 必须使用 VK 密钥进行鉴权。
 1.  **获取密钥**：前往 [妙言小智官网申请 VK 密钥](https://www.pictech.cc/newpictech/skills/openclaw-image-translation-skill)。
 2.  **配置密钥**：在 Skill 的设置项（或 `config.vk`）中填写一次即可。

@@ -1,7 +1,7 @@
 /** 
  * MyXZ Image Translation Skill 
  * Official Website: https://www.pictech.cc
- * Service Provider: https://stableai.com.cn (妙言小智技术服务支持)
+ * Service Provider: https://skill.pictech.top (妙言小智技术服务支持)
  */
 import os from 'node:os';
 import fs from 'node:fs';
@@ -14,7 +14,7 @@ import { initDB, dbOps } from './database.js';
 import { utils } from './utils.js';
 
 // 妙言小智的skill地址
-const API_BASE = "https://stableai.com.cn/myxz/skill/translate";
+const API_BASE = "https://skill.pictech.top/myxz/skill/translate";
 const MAX_SIZE = 15 * 1024 * 1024; // 15MB
 
 const ALLOWED_SOURCE_API_CODES = ["Chinese", "ChineseTraditional", "English", "Japanese"];

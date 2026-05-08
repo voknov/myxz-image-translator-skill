@@ -1,107 +1,110 @@
-# 🎨 妙言小智 (PicTech.cc) 专业图片翻译 Skill
 
-**—— 小龙虾(OpenClaw)生态中为跨境电商而生的生产级 AI 图像翻译SKILL**
+# 🎨 妙言小智 (PicTech.cc) 专业级图片翻译 Skill
+
+**—— OpenClaw / WorkBuddy / accio work / codex 生态中为跨境电商而生的生产级 AI [图像翻译](https://www.pictech.cc)解决方案**
+
+<img width="1500" height="750" alt="spliced-hd-1778153629206" src="https://github.com/user-attachments/assets/f6e5c8c5-aaa2-4b9a-972b-5693b2dd8b09" />
 
 
+## 🌟 核心价值
 
-## 🌟 为什么选择妙言小智图片翻译？
+在亚马逊、Shopify、TikTok Shop 等跨境电商业务中，[图片素材的本地化](https://www.pictech.cc)质量直接决定了点击率与转化率。本 [图片翻译Skill](https://www.pictech.cc) 由 **[妙言小智 (PicTech.cc)](https://www.pictech.cc)** 官方出品，专为 AI Agent 设计，提供高度自动化、视觉无损的图片翻译能力。
 
-在跨境电商领域（亚马逊、Shopify、Shopee、Lazada、TikTok Shop、美客多等），图片素材的本地化质量直接影响转化率。传统的翻译工具往往会破坏原图美感，或需要频繁手动操作。
-
-本 Skill 是由 **[妙言小智 (PicTech.cc)](https://www.pictech.cc)** 官方出品的专业级[图片翻译](https://www.pictech.cc)OpenClaw生态的解决方案。它不仅是一个图片翻译的SKILL，更是一个懂业务、有记忆、能批量处理的“AI 翻译官”。
-
-### 核心优势：
-*   **保持原图布局**：采用先进的 OCR 与图像修补技术，翻译后文字完美嵌入原图位置，不影响排版美感。
-*   **极致用户体验**：
-    *   **图片直连预览**：任务完成后，AI 会直接在对话框渲染翻译后的预览图，无需手动打开文件夹。
-    *   **持久化记忆**：首创 VK (API Key) 记忆功能，输入一次，永久记住，下次使用无需重复输入。
-*   **专为批量而生**：支持单个图片 URL、本地路径，甚至一整套产品文件夹的递归处理。
-*   **极速缓存优化**：内置 SQLite 数据库，相同素材重复翻译不消耗 API 额度。
+### 为什么选择妙言小智？
+*   **完美还原排版**：采用前沿的 OCR 识别与图像后期修补技术，翻译后文字完美嵌入原图位置，保持原有的字体风格、颜色与排版美感。
+*   **极致 VK 管理体验**：遵循“一次输入，永久有效”原则。VK 密钥由系统配置统一管理，Agent 会自动读取，无需用户在每次对话中重复输入。
+*   **强大的批量处理**：支持单个 URL、本地单张图片，甚至整个产品素材文件夹的递归处理，极速完成整店素材本地化。
+*   **预览与反馈直观**：任务完成后提供结构化报告，支持直接在对话框渲染翻译后的预览图（resultUrl），并同步保存至本地。
+*   **缓存加速机制**：内置智能缓存，相同素材重复翻译不消耗 API 额度，大幅提升响应速度。
 
 ---
 
-## 🛠️ 安装指南
+## 🛠️ 安装与配置
 
-本 [图片翻译Skill](https://www.pictech.cc) 适用于 **OpenClaw**、**WorkBuddy**、**Claude Code** 等支持标准 Agent Skills 的环境。
+本 Skill 适用于 **OpenClaw**、**WorkBuddy**、**Codex** 等支持标准 Agent Skills 的环境。
 
-1.  **克隆仓库**：
-    ```bash
-    git clone https://github.com/your-username/myxz-translate-skill.git
-    cd myxz-translate-skill
-    ```
+### 1. 环境依赖
+确保你的系统中已安装 **Node.js v20+**。
+```bash
+git clone https://github.com/your-username/myxz-image-translator-skill.git
+cd myxz-image-translator-skill
+npm install
+```
+### 2. Agent安装
+```bash
+帮我安装妙言小智的图片翻译skill https://github.com/your-username/myxz-image-translator-skill.git
+```
 
-2.  **安装依赖**：
-    ```bash
-    npm install
-    ```
-
-3.  **准备环境**：
-    确保你的电脑已安装 **Node.js v20+**。
+### 3. 获取并配置 VK (API Key)
+本 Skill 必须使用 VK 密钥进行鉴权。
+1.  **获取密钥**：前往 [妙言小智官网申请 VK 密钥](https://www.pictech.cc/newpictech/skills/openclaw-image-translation-skill)。
+2.  **配置密钥**：在 Skill 的设置项（或 `config.vk`）中填写一次即可。
+    *   *注：Agent 严禁在每次任务中索要 VK，系统会自动按 `config.vk > params.vk > process.env` 的优先级读取。*
 
 ---
 
 ## 🚀 快速上手 (Prompt 示例)
 
-你可以直接对你的 AI 助手说以下话：
+### 场景 A：翻译单张本地图片
+> "请帮我用妙言小智翻译桌面上的 `product_info.jpg`，中文翻译成英文。"
 
-### 1. 激活并翻译（首次使用）
-```
-> "这是我的妙言小智 VK 密钥：`sp332e083xxxxxxxx`，请用妙言小智的图片翻译skill帮我把桌面上的中文图片 `listing_main.jpg` 翻译成英文。"
-```
+### 场景 B：批量处理整个文件夹
+> "使用妙言小智图片翻译 Skill，把 `D:/Shopify/Listing_01` 文件夹里的所有产品图翻译成日文，源语言是中文。"
 
-### 2. 批量处理电商素材包
-```
-> "请用妙言小智的图片翻译skill翻译这个文件夹里的所有产品图：`E:/Amazon/New_Product_A`。源语言是中文，翻译成英文。"
-```
+### 场景 C：翻译网络图片 URL
+> "翻译这张亚马逊主图：https://example.com/item.jpg，中文转德文。"
 
-### 3. 直接翻译网络图片
-```
-> "请用妙言小智的图片翻译skill 翻译这张主图：https://example.com/item_01.jpg，中文翻译成英文"
-```
+---
 
-### 4. 翻译多张网络图片
-```
-> "请用妙言小智的图片翻译skill翻译这几张主图：https://example.com/item_01.jpg,https://example.com/item_02.jpg,https://example.com/item_03.jpg中文翻译成英文"
+## 📋 输入参数说明 (Inputs)
+
+| 参数 | 必填 | 类型 | 说明 |
+| :--- | :--- | :--- | :--- |
+| `input` | **是** | String | 支持：本地文件路径、图片 URL、或文件夹路径（批量处理） |
+| `sourceLanguage` | 否 | String | 默认：`中文`。支持：`中文`、`繁体中文`、`English`、`Japanese` |
+| `targetLanguage` | 否 | String | 默认：`英文`。支持：英、日、韩、法、德、西、泰、俄等 19 种主流语种 |
+| `saveDir` | 否 | String | 默认路径：`./myxz-result/Translations` |
+
+---
+
+## 📦 输出规范
+
+任务执行后，Skill 将返回标准的结构化 JSON 报告，方便 AI Agent 解析并展示给用户：
+
+```json
+{
+  "任务状态": "翻译完成",
+  "成功数量": 1,
+  "失败数量": 0,
+  "结果": [
+    {
+      "文件": "listing_main.jpg",
+      "任务ID": "TR_88291024",
+      "预览": "https://skill.pictech.top/preview/xxx.jpg",
+      "本地路径": "C:/Users/Admin/myxz-result/Translations/listing_main_EN.jpg"
+    }
+  ]
+}
 ```
 
 ---
 
-## 📋 功能参数说明
+## 🔐 安全与隐私
 
-| 参数 | 必填 | 说明 |
-| :--- | :--- | :--- |
-| `input` | 是 | 支持：单个文件路径、图片URL、或包含多张图片的文件夹 |
-| `sourceLanguage` | 是 | 限制：`中文`、`繁体中文`、`英文`、`日文` |
-| `targetLanguage` | 是 | 支持：全球 20+ 主流电商语种 (英、中、日、韩、泰、德、法、俄等) |
-| `vk` | 首次 | 妙言小智 API Key。一旦成功运行，系统会自动记忆。 |
-| `saveDir` | 否 | 翻译结果存放路径，默认在用户目录下的 `myxz-result` |
-
----
-
-## 📦 开发者协议 (For AI Agent)
-
-*   **入口点**：`node cli.js`
-*   **交互协议**：通过标准 JSON 字符串进行参数传递与结果接收。
-*   **自检机制**：脚本会自动检查 `.vk_config`。若缺失且用户未提供，将返回 `NEED_VK` 状态码，此时请提示用户输入密钥。
-
----
-
-## 🔐 源码说明与隐私
-
-*   **核心逻辑**：本 Skill 的核心翻译逻辑 (`index.js`) 经过混淆处理，旨在保护 PicTech 核心接口。
-*   **隐私安全**：所有的 VK 密钥及翻译记录均保存在用户本地磁盘，不会上传至任何第三方服务器（除翻译请求必经的 PicTech 官方接口外）。
+*   **API 加密**：后端服务由 `https://skill.pictech.top` 提供，所有传输均通过 HTTPS 加密。
+*   **数据脱敏**：API Key (VK) 严禁出现在任何日志或返回体中。
+*   **隐私保护**：图片仅用于实时 AI 推理服务，不做持久化存储。
+*   **本地安全**：VK 密钥及翻译记录保存在用户本地磁盘，安全性由本地环境保障。
 
 ---
 
 ## 📬 关于妙言小智 (PicTech)
 
-妙言小智致力于通过 AI 技术赋能跨境电商卖家，提供最高质量的图片、文案本地化方案。
+妙言小智致力于通过 AI 技术赋能跨境电商，提供高质量的图片与文案本地化方案。
 
-*   **[妙言小智官方网站](https://pictech.cc)**: [https://pictech.cc](https://pictech.cc)
-*   **支持反馈**: 若遇到技术问题，请提交 Issue 或通过官网联系客服。
-
----
-
-**立即开始，让你的产品素材走向全球！** 🌍
+*   **官方网站**: [妙言小智](https://pictech.cc)
+*   **技术支持**: 若遇到 Skill 调用问题，请通过官网联系客服或在仓库提交 Issue。
 
 ---
+
+**立即开始，让 AI 助您的产品素材跨越语言鸿沟！** 🌍

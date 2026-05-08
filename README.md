@@ -80,7 +80,7 @@ npm install
     {
       "文件": "listing_main.jpg",
       "任务ID": "TR_88291024",
-      "预览": "https://skill.pictech.top/preview/xxx.jpg",
+      "预览": "https://pictech.top/preview/xxx.jpg",
       "本地路径": "C:/Users/Admin/myxz-result/Translations/listing_main_EN.jpg"
     }
   ]
@@ -91,7 +91,7 @@ npm install
 
 ## 🔐 安全与隐私
 
-*   **API 加密**：后端服务由 `https://skill.pictech.top` 提供，所有传输均通过 HTTPS 加密。
+*   **API 加密**：后端服务由 `https://stableai.com.cn` 提供，所有传输均通过 HTTPS 加密。
 *   **数据脱敏**：API Key (VK) 严禁出现在任何日志或返回体中。
 *   **隐私保护**：图片仅用于实时 AI 推理服务，不做持久化存储。
 *   **本地安全**：VK 密钥及翻译记录保存在用户本地磁盘，安全性由本地环境保障。

@@ -3,7 +3,7 @@ name: myxz-image-translation
 description: 妙言小智 (PicTech.cc) 专业级跨境电商图片翻译 Skill，支持批量翻译、主图保护、多语言映射、在线编辑与自动化工作流集成。
 ---
 
-# MyXZ 图片翻译
+# 妙言小智图片翻译
 
 使用本 skill 通过 妙言小智 图片翻译服务翻译图片中的文字。
 
@@ -55,7 +55,6 @@ VK 是必需的 API 凭证。
 - `中文`
 - `繁体中文`
 - `英文`
-- `日语`
 - `泰语`
 - `俄语`
 - `印尼语`
@@ -119,8 +118,8 @@ await run({
 ```js
 await run({
     input: "C:/path/to/image-folder",
-    sourceLanguage: "日语",
-    targetLanguage: "中文",
+    sourceLanguage: "中文",
+    targetLanguage: "英语",
     config: {
         vk: "<从 skill/plugin 持久配置中读取>"
     }
@@ -208,7 +207,7 @@ await run({
 - `把这张图片从中文翻译成英文`
 - `翻译这个文件夹里的所有商品图，中文到西班牙语`
 - `把这些图片 URL 翻译成英文，主图产品不要动`
-- `日语图片翻译成中文，结果保存到指定目录`
+- `中文图片翻译成英语，结果保存到指定目录`
 
 ## 可靠性要求
 

@@ -1,7 +1,7 @@
 {
   "name": "myxz-image-translator",
-  "version": "1.0.0",
-  "description": "妙言小智(PicTech.cc)为OpenClaw等开发的专业级AI图片翻译skill，支持批量处理、语种自动映射及秒传缓存功能。",
+  "version": "1.1.0",
+  "description": "妙言小智(PicTech.cc)为OpenClaw等开发的专业级AI图片翻译skill。支持批量处理、语种自动映射、主图保护及秒传缓存功能。",
   "main": "dist/index.js",
   "author": "妙言小智(PicTech.cc)",
   "config": {
@@ -19,13 +19,6 @@
   },
   "params": [
     {
-      "name": "vk",
-      "type": "string",
-      "label": "API 密钥 (VK)",
-      "placeholder": "请输入来自 https://www.pictech.cc上申请 的 VK",
-      "required": true
-    },
-    {
       "name": "input",
       "type": "string",
       "label": "输入资源",
@@ -36,7 +29,7 @@
       "name": "saveDir",
       "type": "string",
       "label": "保存目录 (可选)",
-      "placeholder": "例如: D:/Output/RMBG 留空则默认保存在用户目录的 myxz-result 下",
+      "placeholder": "留空默认保存在 myxz-result 目录下",
       "required": false
     },
     {
@@ -44,14 +37,21 @@
       "type": "string",
       "label": "源语言",
       "default": "中文",
-      "placeholder": "支持：中文、繁体中文、英文、日文"
+      "placeholder": "支持：中文、繁体、英文、日文、泰文、俄文、德文、法文等"
     },
     {
       "name": "targetLanguage",
       "type": "string",
       "label": "目标语言",
       "default": "英文",
-      "placeholder": "支持：英文、日文、韩文、泰文、德文、法文等19种语言"
+      "placeholder": "支持：英、日、韩、泰、俄、葡、西、法、德、意、波、荷、土、越、印尼、马、菲"
+    },
+    {
+      "name": "mainImageProtection",
+      "type": "boolean",
+      "label": "主图保护模式",
+      "default": false,
+      "placeholder": "开启后将智能识别并保护商品上的文字不被翻译"
     }
   ]
 }

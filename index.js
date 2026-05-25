@@ -94,10 +94,10 @@ const getDisplayFileName = (inputPath) => {
     return path.basename(inputPath);
 };
 
-const buildFinalStatus = ({ total, successCount, failedCount }) => {
+const buildFinalStatus = ({ total, successCount, failedCount, noTextCount }) => {
     if (total === 0) return 'no_tasks';
-    if (successCount === total) return 'completed';
-    if (successCount > 0 && failedCount > 0) return 'partial_success';
+    if (failedCount === 0 && successCount + noTextCount === total) return 'completed';
+    if (successCount + noTextCount > 0 && failedCount > 0) return 'partial_success';
     return 'failed';
 };
 
@@ -303,6 +303,19 @@ export default async function run(params = {}) {
                 continue;
             }
 
+            if (record && record.status === 'no_text') {
+                summary.details.push({
+                    taskId: record.taskId,
+                    input: task.path,
+                    fileName,
+                    status: 'no_text',
+                    fromCache: true,
+                    error: record.errorMessage || '图片上无文字，翻译失败，无需重试'
+                });
+
+                continue;
+            }
+
             // A. 提交任务
             const form = new FormData();
             form.append('file', buffer, { filename: fileName });
@@ -328,6 +341,7 @@ export default async function run(params = {}) {
             // B. 轮询结果
             let resultUrl = null;
             let editorUrl = null;
+            let noTextMessage = null;
 
             for (let i = 0; i < 60; i++) {
                 await utils.sleep(3000);
@@ -355,7 +369,39 @@ export default async function run(params = {}) {
                     continue;
                 }
 
+                if (status === 300) {
+                    noTextMessage = resData.data.errorMessage || '图片上无文字，翻译失败，无需重试';
+                    break;
+                }
+
                 throw new Error(`处理失败: 状态码 ${status}`);
+            }
+
+            if (noTextMessage) {
+                await dbOps.insert(db, {
+                    cacheKey,
+                    taskId,
+                    hash,
+                    sourceLanguage: apiSourceLang,
+                    targetLanguage: apiTargetLang,
+                    resultUrl: null,
+                    editorUrl: null,
+                    localPath: null,
+                    errorMessage: noTextMessage,
+                    createdAt: Date.now(),
+                    status: 'no_text'
+                });
+
+                summary.details.push({
+                    taskId,
+                    input: task.path,
+                    fileName,
+                    status: 'no_text',
+                    fromCache: false,
+                    error: noTextMessage
+                });
+
+                continue;
             }
 
             if (!resultUrl) {
@@ -409,18 +455,20 @@ export default async function run(params = {}) {
 
     // 4. 生成适合大模型读取的结构化报告
     const successList = summary.details.filter((d) => d.status === 'success');
+    const noTextList = summary.details.filter((d) => d.status === 'no_text');
     const failList = summary.details.filter((d) => d.status === 'failed');
 
     const finalStatus = buildFinalStatus({
         total: summary.total,
         successCount: successList.length,
-        failedCount: failList.length
+        failedCount: failList.length,
+        noTextCount: noTextList.length
     });
 
     return {
         success: finalStatus === 'completed' || finalStatus === 'partial_success',
         status: finalStatus,
-        message: `图片翻译完成，成功 ${successList.length} 个，失败 ${failList.length} 个，总计 ${summary.total} 个。`,
+        message: `图片翻译完成，成功 ${successList.length} 个，无文字 ${noTextList.length} 个，失败 ${failList.length} 个，总计 ${summary.total} 个。`,
         batchId: globalBatchId,
         sourceLanguage,
         targetLanguage,
@@ -431,6 +479,7 @@ export default async function run(params = {}) {
         counts: {
             total: summary.total,
             success: successList.length,
+            noText: noTextList.length,
             failed: failList.length
         },
         results: successList.map((d) => ({
@@ -446,6 +495,13 @@ export default async function run(params = {}) {
             input: d.input,
             fileName: d.fileName || getDisplayFileName(d.input),
             error: d.error
+        })),
+        skipped: noTextList.map((d) => ({
+            taskId: d.taskId || null,
+            input: d.input,
+            fileName: d.fileName || getDisplayFileName(d.input),
+            reason: d.error || '图片上无文字，翻译失败，无需重试',
+            fromCache: Boolean(d.fromCache)
         }))
     };
 }
